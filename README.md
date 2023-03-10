@@ -3,7 +3,7 @@ This is a personal project and exercise.
 While the primary aim is to serve personal purposes the process, code and
 the deployment are welcomed to be used as a tool in deployed form
 and as study material in code form. 
-<br><br>
+<br>The production deply can be accessed at: https://retzilience.github.io/beep-beep-machine/<br>
 これは個人的なプロジェクトと演習です。主な目的は個人的な目的に役立つことですが、プロセス、コード、デプロイメントは、デプロイされた形でツールとして、コード形式で学習資料として使用することを歓迎します。
 <br><br>
 Este é um projeto e exercício pessoal. Embora o objetivo principal seja atender a propósitos pessoais, o processo, o código e a implantação são bem-vindos para serem usados como uma ferramenta na forma implantada e como material de estudo na forma de código.

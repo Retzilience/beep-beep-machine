@@ -19,18 +19,18 @@
 			-ms-user-select: none;
 			user-select: none;
 		}
-#bpm {
-  margin-right: 5px;
-  background-color: #f2f2f2;
-  color: #222222;
-  border: none;
-  padding: 5px;
-  border-radius: 3px;
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
-  outline: none;
-  text-align: center;
+		#bpm {
+    margin-right: 5px;
+    background-color: #f2f2f2;
+    color: #222222;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 100px;
+    height: 60px;
+    font-size: 28px;
+    outline: none;
+    text-align: center;
 }
 
 #bpm-decrease, #bpm-increase {
@@ -205,11 +205,6 @@ bpmIncreaseButton.addEventListener("click", function() {
         bpmInput.value = bpm + 1;
     }
 });
-bpmInput.addEventListener("click", function() {
-  bpmInput.focus();
-  bpmInput.select();
-});
-
 
 
 	</script>

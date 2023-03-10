@@ -5,7 +5,8 @@
 <meta charset="UTF-8"> 
 <title>b.b.m.2</title> 
 <!--Sets the viewport settings for responsive design on different devices-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!--Style Start-->
 	<style>
 		body {
 			background-color: #222222;
@@ -107,20 +108,19 @@ The last style block targets <input> elements of type “number” again but thi
  			touch-action: pan-x pan-y;
 			overscroll-behavior: none;
 			}	
-/*This JavaScript code adds two event listeners to the document object. The first listens for a "gesturestart" event and calls the preventDefault() method on the event object when it occurs. This prevents default browser actions for this event, such as zooming in or out.
-The second listener listens for a "touchstart" event and checks if there is more than one touch point (i.e., if multiple fingers are touching the screen). If there is more than one touch point, it calls the preventDefault() method on the event object to prevent default browser actions for this multi-touch gesture. The { passive: false } option passed as the third argument to addEventListener() specifies that this listener should not be passive (i.e., it may call preventDefault()).*/
-document.addEventListener("gesturestart", function(event) {
-  event.preventDefault();
-});
-
-document.addEventListener("touchstart", function(event) {
-  if (event.touches.length > 1) {
-    event.preventDefault();
-  }
-}, { passive: false });
 	</style>
 <!--This is a <script> element that contains JavaScript code. The code adds an event listener to the document object that listens for a "gesturestart" event. When this event occurs, the anonymous function passed as the second argument to addEventListener() is called with the event object (e) as its argument. This function calls the preventDefault() method on the event object to prevent default browser actions for this event, such as zooming in or out.-->
 	<script>
+		/*This JavaScript code adds two event listeners to the document object. The first listens for a "gesturestart" event and calls the preventDefault() method on the event object when it occurs. This prevents default browser actions for this event, such as zooming in or out.
+The second listener listens for a "touchstart" event and checks if there is more than one touch point (i.e., if multiple fingers are touching the screen). If there is more than one touch point, it calls the preventDefault() method on the event object to prevent default browser actions for this multi-touch gesture. The { passive: false } option passed as the third argument to addEventListener() specifies that this listener should not be passive (i.e., it may call preventDefault()).*/
+		document.addEventListener("gesturestart", function(event) {
+  		event.preventDefault();
+		});
+		document.addEventListener("touchstart", function(event) {
+ 		if (event.touches.length > 1) {
+    		event.preventDefault();
+  		}
+		}, { passive: false });
 		document.addEventListener('gesturestart', function (e) {
 		e.preventDefault();
 		});

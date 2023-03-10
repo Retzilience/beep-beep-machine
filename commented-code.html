@@ -35,6 +35,7 @@ The last style block targets <input> elements of type “number” again but thi
         			}
         		input[type="number"] {
            	 		-moz-appearance:textfield;
+					appearance: textfield;
         			}
 /* Style the BPM input */
 		#bpm {
@@ -139,7 +140,7 @@ The second listener listens for a "touchstart" event and checks if there is more
 		document.addEventListener('gesturestart', function (e) {
 		e.preventDefault();
 		});
-<!--This code creates a metronome using the Web Audio API. It allows the user to set the beats per minute (BPM) and start/stop the metronome. The metronome produces a sound at a regular interval and also visually indicates each beat with a circle that changes opacity.-->
+/*This code creates a metronome using the Web Audio API. It allows the user to set the beats per minute (BPM) and start/stop the metronome. The metronome produces a sound at a regular interval and also visually indicates each beat with a circle that changes opacity*/
 /*Create an audio context and gain node*/
 		var audioContext = new AudioContext();
 		var gainNode = audioContext.createGain();

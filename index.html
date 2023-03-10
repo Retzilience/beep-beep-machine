@@ -84,6 +84,20 @@
 			opacity: 0.0;
 			transition: opacity 0.1s linear;
 		}
+		html, body {
+  touch-action: pan-x pan-y;
+  overscroll-behavior: none;
+}
+
+document.addEventListener("gesturestart", function(event) {
+  event.preventDefault();
+});
+
+document.addEventListener("touchstart", function(event) {
+  if (event.touches.length > 1) {
+    event.preventDefault();
+  }
+}, { passive: false });
 	</style>
 	<script>
 document.addEventListener('gesturestart', function (e) {

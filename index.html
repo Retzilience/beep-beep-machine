@@ -140,6 +140,10 @@ document.addEventListener('gesturestart', function (e) {
 		var stopButton = document.getElementById("stop");
 		var circle = document.querySelector(".circle");
 
+  bpmInput.addEventListener("click", function() {
+  this.focus();
+});
+
 		startButton.addEventListener("click", function() {
 			if (!isPlaying) {
 				var bpm = parseInt(bpmInput.value);
@@ -208,9 +212,6 @@ bpmIncreaseButton.addEventListener("click", function() {
 function updateBpmValue(value) {
   bpmInput.value = value;
 }
-bpmInput.addEventListener("click", function() {
-  this.focus();
-});
 
 
 	</script>

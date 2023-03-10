@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html> 
+<html>
+<!--Head Start-->
 <head> 
 <!--Specifies the character encoding for the HTML document-->
-<meta charset="UTF-8"> 
-<title>b.b.m.2</title> 
+		<meta charset="UTF-8"> 
+		<title>b.b.m.2</title> 
 <!--Sets the viewport settings for responsive design on different devices-->
-			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <!--Style Start-->
 	<style>
-		body {
+			body {
 			background-color: #222222;
 			font-family: sans-serif;
 			text-align: center;
@@ -27,14 +28,14 @@
         	}
 /*These styles target <input> elements of type “number” and use vendor-specific pseudo-elements (::-webkit-outer-spin-button, ::-webkit-inner-spin-button) to hide the default spin buttons that appear in some browsers for number inputs. The -webkit-appearance property is set to none to remove the default appearance of these spin buttons and the margin is set to 0 to remove any space they may have occupied.
 The last style block targets <input> elements of type “number” again but this time uses the -moz-appearance property with a value of textfield to change the appearance of number inputs in Mozilla Firefox to look like regular text fields.*/
-		input[type="number"]::-webkit-outer-spin-button,
-        	input[type="number"]::-webkit-inner-spin-button {
-            	-webkit-appearance: none;
-            	margin: 0;
-        	}
-        	input[type="number"] {
-           	 -moz-appearance:textfield;
-        	}
+			input[type="number"]::-webkit-outer-spin-button,
+        		input[type="number"]::-webkit-inner-spin-button {
+            			-webkit-appearance: none;
+            			margin: 0;
+        			}
+        		input[type="number"] {
+           	 		-moz-appearance:textfield;
+        			}
 /* Style the BPM input */
 		#bpm {
     			margin-right: 5px;
@@ -109,6 +110,20 @@ The last style block targets <input> elements of type “number” again but thi
 			overscroll-behavior: none;
 			}	
 	</style>
+</head>
+<!--Body Start-->
+<body>
+	<h1>b.b.m.2</h1>
+	<div class="circle"></div>
+	<button id="bpm-decrease">-</button>
+	<input type="number" id="bpm" value="120" min="1" max="300">
+	<button id="bpm-increase">+</button>
+	<br><br>
+	<button id="start">コン</button>
+	<button id="stop">「STOP」</button>
+	<br>
+	<button id="tap">Tap Tempo</button>
+<!--Script Start-->
 <!--This is a <script> element that contains JavaScript code. The code adds an event listener to the document object that listens for a "gesturestart" event. When this event occurs, the anonymous function passed as the second argument to addEventListener() is called with the event object (e) as its argument. This function calls the preventDefault() method on the event object to prevent default browser actions for this event, such as zooming in or out.-->
 	<script>
 		/*This JavaScript code adds two event listeners to the document object. The first listens for a "gesturestart" event and calls the preventDefault() method on the event object when it occurs. This prevents default browser actions for this event, such as zooming in or out.
@@ -124,23 +139,7 @@ The second listener listens for a "touchstart" event and checks if there is more
 		document.addEventListener('gesturestart', function (e) {
 		e.preventDefault();
 		});
-	</script>
-<!--Head Start-->
-</head>
-<body>
-	<h1>b.b.m.2</h1>
-	<div class="circle"></div>
-	<button id="bpm-decrease">-</button>
-	<input type="number" id="bpm" value="120" min="1" max="300">
-<button id="bpm-increase">+</button>
-
-	<br><br>
-	<button id="start">コン</button>
-	<button id="stop">「STOP」</button>
-	<br>
-	<button id="tap">Tap Tempo</button>
 <!--This code creates a metronome using the Web Audio API. It allows the user to set the beats per minute (BPM) and start/stop the metronome. The metronome produces a sound at a regular interval and also visually indicates each beat with a circle that changes opacity.-->
-	<script>
 /*Create an audio context and gain node*/
 		var audioContext = new AudioContext();
 		var gainNode = audioContext.createGain();
@@ -159,104 +158,102 @@ The second listener listens for a "touchstart" event and checks if there is more
 
 		var bpmInput = document.getElementById("bpm");
 		/*Update BPM value when user changes it*/
-bpmInput.addEventListener("input", function() {
-  var bpm = parseInt(this.value);
-  if (bpm >= 1 && bpm <= 300) {
-    updateBpmValue(bpm);
-  }
-});
+		bpmInput.addEventListener("input", function() {
+  		var bpm = parseInt(this.value);
+  		if (bpm >= 1 && bpm <= 300) {
+    		updateBpmValue(bpm);
+  		}
+		});
 /*Get references to DOM elements for user interaction*/
 		var startButton = document.getElementById("start");
 		var stopButton = document.getElementById("stop");
 		var circle = document.querySelector(".circle");
 /*Start metronome when start button is clicked*/
 		startButton.addEventListener("click", function() {
-			if (!isPlaying) {
-				var bpm = parseInt(bpmInput.value);
-				var interval = 60000 / bpm;
-
-				timer = setInterval(function() {
-					beat = audioContext.createOscillator();
-					beat.frequency.value = 1000;
-					beat.connect(gainNode);
-					beat.start(audioContext.currentTime);
-					beat.stop(audioContext.currentTime + duration);
-					
-					circle.style.opacity = "1.0";
-					setTimeout(function() {
-						circle.style.opacity = "0.0";
-					}, interval/2);
-				}, interval);
-				isPlaying = true;
-			}
+		if (!isPlaying) {
+		var bpm = parseInt(bpmInput.value);
+		var interval = 60000 / bpm;
+		timer = setInterval(function() {
+		beat = audioContext.createOscillator();
+		beat.frequency.value = 1000;
+		beat.connect(gainNode);
+		beat.start(audioContext.currentTime);
+		beat.stop(audioContext.currentTime + duration);
+		circle.style.opacity = "1.0";
+		setTimeout(function() {
+		circle.style.opacity = "0.0";
+		}, interval/2);
+		}, interval);
+		isPlaying = true;
+		}
 		});
 /*Stop metronome when stop button is clicked*/
 		stopButton.addEventListener("click", function() {
-			if (isPlaying) {
-				clearInterval(timer);
-				isPlaying = false;
-				circle.style.opacity = "0.0";
-			}
+		if (isPlaying) {
+		clearInterval(timer);
+		isPlaying = false;
+		circle.style.opacity = "0.0";
+		}
 		});
-		/*Allow user to tap a button to set BPM based on time interval between taps*/
-		// Get the tap button element from the DOM
+/*Allow user to tap a button to set BPM based on time interval between taps*/
+// Get the tap button element from the DOM
 		var tapButton = document.getElementById("tap");
-		// Initialize an array to store the times of each tap
+// Initialize an array to store the times of each tap
 		var tapTimes = [];
-		// Initialize a variable to store a timer
+// Initialize a variable to store a timer
 		var tapTimer;
 // Add an event listener to the tap button for when it is clicked
-tapButton.addEventListener("click", function() {
-	// When the button is clicked, add the current time (in milliseconds) to the tapTimes array
-    tapTimes.push(Date.now());
-	// Clear any existing timer
-    clearTimeout(tapTimer);
-	// If there are more than 2 taps recorded
-    if (tapTimes.length > 2) {
-	// Initialize a variable to store the total time between taps
-        var total = 0;
-	// Loop through the tapTimes array starting from index 1
-        for (var i = 1; i < tapTimes.length; i++) {
-		// Add the difference between each pair of consecutive taps to the total time between taps
-            total += tapTimes[i] - tapTimes[i - 1];
-        }
-	    // Calculate the average time between taps by dividing the total time by one less than number of taps recorded 
-        var average = total / (tapTimes.length - 1);
-	    // Calculate beats per minute (BPM) by dividing 60000 milliseconds by average time between taps and rounding to nearest integer 
-        var bpm = Math.round(60000 / average);
-	    // Set value of bpmInput element to calculated BPM value 
-        bpmInput.value = bpm;
-    }
-	// Set a timer that will clear out all recorded taps after two seconds without any new taps 
-    tapTimer = setTimeout(function() {
-        tapTimes = [];
-    }, 2000);
-});
+		tapButton.addEventListener("click", function() {
+// When the button is clicked, add the current time (in milliseconds) to the tapTimes array
+    		tapTimes.push(Date.now());
+// Clear any existing timer
+    		clearTimeout(tapTimer);
+// If there are more than 2 taps recorded
+    		if (tapTimes.length > 2) {
+// Initialize a variable to store the total time between taps
+        	var total = 0;
+// Loop through the tapTimes array starting from index 1
+        	for (var i = 1; i < tapTimes.length; i++) {
+// Add the difference between each pair of consecutive taps to the total time between taps
+            	total += tapTimes[i] - tapTimes[i - 1];
+        	}
+// Calculate the average time between taps by dividing the total time by one less than number of taps recorded 
+        	var average = total / (tapTimes.length - 1);
+// Calculate beats per minute (BPM) by dividing 60000 milliseconds by average time between taps and rounding to nearest integer 
+        	var bpm = Math.round(60000 / average);
+// Set value of bpmInput element to calculated BPM value 
+        	bpmInput.value = bpm;
+    		}
+// Set a timer that will clear out all recorded taps after two seconds without any new taps 
+    		tapTimer = setTimeout(function() {
+        	tapTimes = [];
+    		}, 2000);
+		});
 /*Get references to DOM elements for user interaction*/
-var bpmDecreaseButton = document.getElementById("bpm-decrease");
-var bpmIncreaseButton = document.getElementById("bpm-increase");
+		var bpmDecreaseButton = document.getElementById("bpm-decrease");
+		var bpmIncreaseButton = document.getElementById("bpm-increase");
 /*Decrease BPM value when decrease button is clicked*/
-bpmDecreaseButton.addEventListener("click", function() {
-    var bpm = parseInt(bpmInput.value);
-    if (bpm > 1) {
-        bpmInput.value = bpm - 1;
-    }
-});
+		bpmDecreaseButton.addEventListener("click", function() {
+    		var bpm = parseInt(bpmInput.value);
+    		if (bpm > 1) {
+        	bpmInput.value = bpm - 1;
+    		}
+		});
 /*Increase BPM value when increase button is clicked*/
-bpmIncreaseButton.addEventListener("click", function() {
-    var bpm = parseInt(bpmInput.value);
-    if (bpm < 300) {
-        bpmInput.value = bpm + 1;
-    }
-});
+		bpmIncreaseButton.addEventListener("click", function() {
+    		var bpm = parseInt(bpmInput.value);
+    		if (bpm < 300) {
+        	bpmInput.value = bpm + 1;
+    		}
+		});
 /*Define a function for updating the BPM value*/
-function updateBpmValue(value) {
-  bpmInput.value = value;
-}
+		function updateBpmValue(value) {
+  		bpmInput.value = value;
+		}
 /*Focus on BPM input when it is clicked*/
-bpmInput.addEventListener("click", function() {
-  this.focus();
-});
+		bpmInput.addEventListener("click", function() {
+		this.focus();
+		});
 	</script>
 </body>
 </html>

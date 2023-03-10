@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<!--Head Start-->
+<!-- Head Start -->
 <head> 
-<!--Specifies the character encoding for the HTML document-->
+<!-- Specifies the character encoding for the HTML document -->
 		<meta charset="UTF-8"> 
 		<title>b.b.m.2</title> 
-<!--Sets the viewport settings for responsive design on different devices-->
+<!-- Sets the viewport settings for responsive design on different devices -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!--Style Start-->
+<!-- Style Start -->
 	<style>
 			body {
 			background-color: #222222;
@@ -17,7 +17,7 @@
 			padding: 0;
 			color: #f2f2f2;
 			}
-/*This is a CSS media query that applies styles to all elements (*) on screens with a maximum width of 799 pixels. The styles specified within this media query disable user selection of text and other elements on the page for different browsers using vendor-specific prefixes (-webkit-, -moz-, -ms-) and the standard user-select property.*/
+/* This is a CSS media query that applies styles to all elements (*) on screens with a maximum width of 799 pixels. The styles specified within this media query disable user selection of text and other elements on the page for different browsers using vendor-specific prefixes (-webkit-, -moz-, -ms-) and the standard user-select property. */
 		@media only screen and (max-width: 799px) {
             		* {
                 	-webkit-user-select: none;
@@ -26,8 +26,8 @@
                 	user-select:none ;
             		}
         	}
-/*These styles target <input> elements of type “number” and use vendor-specific pseudo-elements (::-webkit-outer-spin-button, ::-webkit-inner-spin-button) to hide the default spin buttons that appear in some browsers for number inputs. The -webkit-appearance property is set to none to remove the default appearance of these spin buttons and the margin is set to 0 to remove any space they may have occupied.
-The last style block targets <input> elements of type “number” again but this time uses the -moz-appearance property with a value of textfield to change the appearance of number inputs in Mozilla Firefox to look like regular text fields.*/
+/* These styles target <input> elements of type “number” and use vendor-specific pseudo-elements (::-webkit-outer-spin-button, ::-webkit-inner-spin-button) to hide the default spin buttons that appear in some browsers for number inputs. The -webkit-appearance property is set to none to remove the default appearance of these spin buttons and the margin is set to 0 to remove any space they may have occupied.
+The last style block targets <input> elements of type “number” again but this time uses the -moz-appearance property with a value of textfield to change the appearance of number inputs in Mozilla Firefox to look like regular text fields. */
 			input[type="number"]::-webkit-outer-spin-button,
         		input[type="number"]::-webkit-inner-spin-button {
             			-webkit-appearance: none;
@@ -105,14 +105,14 @@ The last style block targets <input> elements of type “number” again but thi
 			opacity: 0.0;
 			transition: opacity 0.1s linear;
 		}
-		/*This CSS code targets the html and body elements and sets their touch-action property to pan-x pan-y, which specifies that touch gestures can be used to pan the page horizontally and vertically. The overscroll-behavior property is set to none, which prevents the page from scrolling beyond its boundaries (i.e., it disables “overscrolling” or “rubber-banding” effects).*/
+		/* This CSS code targets the html and body elements and sets their touch-action property to pan-x pan-y, which specifies that touch gestures can be used to pan the page horizontally and vertically. The overscroll-behavior property is set to none, which prevents the page from scrolling beyond its boundaries (i.e., it disables “overscrolling” or “rubber-banding” effects). */
 		html, body {
  			touch-action: pan-x pan-y;
 			overscroll-behavior: none;
 			}	
 	</style>
 </head>
-<!--Body Start-->
+<!-- Body Start -->
 <body>
 	<h1>b.b.m.2</h1>
 	<div class="circle"></div>
@@ -124,11 +124,11 @@ The last style block targets <input> elements of type “number” again but thi
 	<button id="stop">「STOP」</button>
 	<br>
 	<button id="tap">Tap Tempo</button>
-<!--Script Start-->
-<!--This is a <script> element that contains JavaScript code. The code adds an event listener to the document object that listens for a "gesturestart" event. When this event occurs, the anonymous function passed as the second argument to addEventListener() is called with the event object (e) as its argument. This function calls the preventDefault() method on the event object to prevent default browser actions for this event, such as zooming in or out.-->
+<!-- Script Start -->
+<!-- This is a <script> element that contains JavaScript code. The code adds an event listener to the document object that listens for a "gesturestart" event. When this event occurs, the anonymous function passed as the second argument to addEventListener() is called with the event object (e) as its argument. This function calls the preventDefault() method on the event object to prevent default browser actions for this event, such as zooming in or out. -->
 	<script>
-		/*This JavaScript code adds two event listeners to the document object. The first listens for a "gesturestart" event and calls the preventDefault() method on the event object when it occurs. This prevents default browser actions for this event, such as zooming in or out.
-The second listener listens for a "touchstart" event and checks if there is more than one touch point (i.e., if multiple fingers are touching the screen). If there is more than one touch point, it calls the preventDefault() method on the event object to prevent default browser actions for this multi-touch gesture. The { passive: false } option passed as the third argument to addEventListener() specifies that this listener should not be passive (i.e., it may call preventDefault()).*/
+// 		This JavaScript code adds two event listeners to the document object. The first listens for a "gesturestart" event and calls the preventDefault() method on the event object when it occurs. This prevents default browser actions for this event, such as zooming in or out.
+// The second listener listens for a "touchstart" event and checks if there is more than one touch point (i.e., if multiple fingers are touching the screen). If there is more than one touch point, it calls the preventDefault() method on the event object to prevent default browser actions for this multi-touch gesture. The { passive: false } option passed as the third argument to addEventListener() specifies that this listener should not be passive (i.e., it may call preventDefault()).
 		document.addEventListener("gesturestart", function(event) {
   		event.preventDefault();
 		});
@@ -140,21 +140,21 @@ The second listener listens for a "touchstart" event and checks if there is more
 		document.addEventListener('gesturestart', function (e) {
 		e.preventDefault();
 		});
-/*This code creates a metronome using the Web Audio API. It allows the user to set the beats per minute (BPM) and start/stop the metronome. The metronome produces a sound at a regular interval and also visually indicates each beat with a circle that changes opacity*/
-/*Create an audio context and gain node*/
+// This code creates a metronome using the Web Audio API. It allows the user to set the beats per minute (BPM) and start/stop the metronome. The metronome produces a sound at a regular interval and also visually indicates each beat with a circle that changes opacity
+// Create an audio context and gain node
 		var audioContext = new AudioContext();
 		var gainNode = audioContext.createGain();
 		gainNode.connect(audioContext.destination);
-/*Set the duration of each beat sound*/
+// Set the duration of each beat sound
 		var duration = 0.025;
-/*Create an oscillator for the beat sound*/
+// Create an oscillator for the beat sound
 		var beat = audioContext.createOscillator();
 		beat.frequency.value = 1000;
 		beat.connect(gainNode);
-/*Start and stop the oscillator to produce a single beat sound*/
+// Start and stop the oscillator to produce a single beat sound
 		beat.start();
 		beat.stop(audioContext.currentTime + duration);
-/*Keep track of whether the metronome is playing or not*/
+// Keep track of whether the metronome is playing or not
 		var isPlaying = false;
 
 		var bpmInput = document.getElementById("bpm");
@@ -165,11 +165,11 @@ The second listener listens for a "touchstart" event and checks if there is more
     		updateBpmValue(bpm);
   		}
 		});
-/*Get references to DOM elements for user interaction*/
+// Get references to DOM elements for user interaction
 		var startButton = document.getElementById("start");
 		var stopButton = document.getElementById("stop");
 		var circle = document.querySelector(".circle");
-/*Start metronome when start button is clicked*/
+// Start metronome when start button is clicked
 		startButton.addEventListener("click", function() {
 		if (!isPlaying) {
 		var bpm = parseInt(bpmInput.value);
@@ -188,7 +188,7 @@ The second listener listens for a "touchstart" event and checks if there is more
 		isPlaying = true;
 		}
 		});
-/*Stop metronome when stop button is clicked*/
+// Stop metronome when stop button is clicked
 		stopButton.addEventListener("click", function() {
 		if (isPlaying) {
 		clearInterval(timer);
@@ -196,7 +196,7 @@ The second listener listens for a "touchstart" event and checks if there is more
 		circle.style.opacity = "0.0";
 		}
 		});
-/*Allow user to tap a button to set BPM based on time interval between taps*/
+// /*Allow user to tap a button to set BPM based on time interval between taps
 // Get the tap button element from the DOM
 		var tapButton = document.getElementById("tap");
 // Initialize an array to store the times of each tap
@@ -230,28 +230,28 @@ The second listener listens for a "touchstart" event and checks if there is more
         	tapTimes = [];
     		}, 2000);
 		});
-/*Get references to DOM elements for user interaction*/
+// Get references to DOM elements for user interaction
 		var bpmDecreaseButton = document.getElementById("bpm-decrease");
 		var bpmIncreaseButton = document.getElementById("bpm-increase");
-/*Decrease BPM value when decrease button is clicked*/
+// Decrease BPM value when decrease button is clicked
 		bpmDecreaseButton.addEventListener("click", function() {
     		var bpm = parseInt(bpmInput.value);
     		if (bpm > 1) {
         	bpmInput.value = bpm - 1;
     		}
 		});
-/*Increase BPM value when increase button is clicked*/
+// Increase BPM value when increase button is clicked
 		bpmIncreaseButton.addEventListener("click", function() {
     		var bpm = parseInt(bpmInput.value);
     		if (bpm < 300) {
         	bpmInput.value = bpm + 1;
     		}
 		});
-/*Define a function for updating the BPM value*/
+// Define a function for updating the BPM value
 		function updateBpmValue(value) {
   		bpmInput.value = value;
 		}
-/*Focus on BPM input when it is clicked*/
+// Focus on BPM input when it is clicked
 		bpmInput.addEventListener("click", function() {
 		this.focus();
 		});

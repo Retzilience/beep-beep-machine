@@ -1,0 +1,6 @@
+2.01
+Problem: The original code disabled text selection for all elements on the page using the user-select: none property. This prevented interaction with form elements like input fields on desktop.
+Solution: We added a media query to apply the user-select: none property only on mobile devices. This allows interaction with form elements on desktop while still preventing text selection on mobile devices.
+Problem: The number input box for BPM had up and down arrows that allowed users to change the value by clicking.
+Solution: We added CSS code to remove the up and down arrows from the number input box. This allows users to change the value by typing only.
+These changes improved the usability of the metronome by allowing users to interact with form elements on desktop and providing a cleaner interface for changing BPM values.

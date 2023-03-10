@@ -208,6 +208,9 @@ bpmIncreaseButton.addEventListener("click", function() {
 function updateBpmValue(value) {
   bpmInput.value = value;
 }
+bpmInput.addEventListener("click", function() {
+  this.focus();
+});
 
 
 	</script>

@@ -110,7 +110,7 @@ document.addEventListener('gesturestart', function (e) {
 	<h1>b.b.m.2</h1>
 	<div class="circle"></div>
 	<button id="bpm-decrease">-</button>
-	<input type="number" id="bpm" value="120" min="1" max="300">
+	<input type="number" id="bpm" value="120" min="1" max="300" oninput="updateBpmValue(this.value)">
 <button id="bpm-increase">+</button>
 
 	<br><br>
@@ -205,6 +205,9 @@ bpmIncreaseButton.addEventListener("click", function() {
         bpmInput.value = bpm + 1;
     }
 });
+function updateBpmValue(value) {
+  bpmInput.value = value;
+}
 
 
 	</script>

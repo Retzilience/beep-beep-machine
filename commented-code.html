@@ -220,7 +220,7 @@ The last style block targets <input> elements of type “number” again but thi
 		circle.style.opacity = "0.0";
 		}
 		});
-// /*Allow user to tap a button to set BPM based on time interval between taps
+// This parts allows the functionally of the Tap Tempo button
 // Get the tap button element from the DOM
 		var tapButton = document.getElementById("tap");
 // Initialize an array to store the times of each tap
@@ -230,52 +230,61 @@ The last style block targets <input> elements of type “number” again but thi
 // Add an event listener to the tap button for when it is clicked
 		tapButton.addEventListener("click", function() {
 // When the button is clicked, add the current time (in milliseconds) to the tapTimes array
-    	tapTimes.push(Date.now());
+    		tapTimes.push(Date.now());
 // Clear any existing timer
-    	clearTimeout(tapTimer);
+    		clearTimeout(tapTimer);
 // If there are more than 2 taps recorded
-    	if (tapTimes.length > 2) {
+    		if (tapTimes.length > 2) {
 // Initialize a variable to store the total time between taps
-        var total = 0;
+        	var total = 0;
 // Loop through the tapTimes array starting from index 1
-        for (var i = 1; i < tapTimes.length; i++) {
+        	for (var i = 1; i < tapTimes.length; i++) {
 // Add the difference between each pair of consecutive taps to the total time between taps
-        total += tapTimes[i] - tapTimes[i - 1];
-        }
+		total += tapTimes[i] - tapTimes[i - 1];
+        	}
 // Calculate the average time between taps by dividing the total time by one less than number of taps recorded
-        var average = total / (tapTimes.length - 1);
+        	var average = total / (tapTimes.length - 1);
 // Calculate beats per minute (BPM) by dividing 60000 milliseconds by average time between taps and rounding to nearest integer
-        var bpm = Math.round(60000 / average);
+        	var bpm = Math.round(60000 / average);
 // Set value of bpmInput element to calculated BPM value
-        bpmInput.value = bpm;
-    	}
-// Set a timer that will clear out all recorded taps after two seconds without any new taps
-    	tapTimer = setTimeout(function() {
-        tapTimes = [];
-    	}, 2000);
+        	bpmInput.value = bpm;
+    		}
+// This part of the code sets a timer using setTimeout. After 2 seconds (2000 milliseconds), the function passed to setTimeout will be called. This function clears the tapTimes array by setting it to an empty array.
+// The tapTimes array is used elsewhere in the code to keep track of the times at which the user taps a button. By clearing this array after 2 seconds, any old tap times are discarded and will not be used in future calculations.
+// It helps ensure that only recent tap times are used when calculating the beats per minute (BPM) based on the user’s taps.		
+    		tapTimer = setTimeout(function() {
+       		tapTimes = [];
+    		}, 2000);
 		});
 // Get references to DOM elements for user interaction
 		var bpmDecreaseButton = document.getElementById("bpm-decrease");
 		var bpmIncreaseButton = document.getElementById("bpm-increase");
 // Decrease BPM value when decrease button is clicked
 		bpmDecreaseButton.addEventListener("click", function() {
-    	var bpm = parseInt(bpmInput.value);
-    	if (bpm > 1) {
-        bpmInput.value = bpm - 1;
-    	}
+// Get the current BPM value from the bpmInput element and parse it as an integer
+		var bpm = parseInt(bpmInput.value);
+// If the current BPM value is greater than 1
+    		if (bpm > 1) {
+// Decrement the BPM value by 1 and update the bpmInput element with the new value
+        	bpmInput.value = bpm - 1;
+    		}
 		});
 // Increase BPM value when increase button is clicked
 		bpmIncreaseButton.addEventListener("click", function() {
+// Get the current BPM value from the bpmInput element and parse it as an integer
     	var bpm = parseInt(bpmInput.value);
+// If the current BPM value is less than 300
     	if (bpm < 300) {
+// Increment the BPM value by 1 and update the bpmInput element with the new value
         bpmInput.value = bpm + 1;
     	}
 		});
-// Define a function for updating the BPM value
+// Define a function to update the BPM value in the bpmInput element
 		function updateBpmValue(value) {
+// Set the value of the bpmInput element to the specified value
   		bpmInput.value = value;
 		}
-// Focus on BPM input when it is clicked
+// Focus on BPM input box when it is clicked, useful on mobile
 		bpmInput.addEventListener("click", function() {
 		this.focus();
 		});

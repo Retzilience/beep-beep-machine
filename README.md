@@ -6,6 +6,7 @@
   <li>The ability to set the BPM directly or increment/decrement it using buttons</li>
   <li>The ability to calculate the BPM based on user taps</li>
   <li>The use of an oscillator to produce an audible sound for each beat</li>
+  <li>The use of visual aids to represent the BPM</li>
 </ul>
 <h2>JavaScript Usage</h2>
 <p>JavaScript is used in several forms as:</p>

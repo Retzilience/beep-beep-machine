@@ -155,16 +155,20 @@ The last style block targets <input> elements of type “number” again but thi
 		beat.start();
 		beat.stop(audioContext.currentTime + duration);
 // Keep track of whether the metronome is playing or not
+// Set isPlaying flag to false indicating that metronome is not currently playing
 		var isPlaying = false;
-
-		var bpmInput = document.getElementById("bpm");
-		/*Update BPM value when user changes it*/
-		bpmInput.addEventListener("input", function() {
-  		var bpm = parseInt(this.value);
-  		if (bpm >= 1 && bpm <= 300) {
-    		updateBpmValue(bpm);
-  		}
-		});
+// Get reference to bpmInput element
+        var bpmInput = document.getElementById("bpm");
+// Add an event listener to bpmInput to handle changes in input value
+bpmInput.addEventListener("input", function() {
+// Parse the value of bpmInput as an integer and store it in a variable called bpm
+var bpm = parseInt(this.value);
+// Check if bpm value is within valid range (1-300)
+if (bpm >= 1 && bpm <= 300) {
+// Call updateBpmValue function with new bpm value as argument
+updateBpmValue(bpm);
+    }
+});
 // Get references to DOM elements for user interaction
 		var startButton = document.getElementById("start");
 		var stopButton = document.getElementById("stop");
@@ -172,27 +176,43 @@ The last style block targets <input> elements of type “number” again but thi
 // Start metronome when start button is clicked
 		startButton.addEventListener("click", function() {
 		if (!isPlaying) {
+		metronome:
+// Parse the value of bpmInput as an integer and store it in a variable called bpm
 		var bpm = parseInt(bpmInput.value);
+// Calculate the interval between beats in milliseconds based on the bpm value
 		var interval = 60000 / bpm;
+// Set a timer to repeat at the calculated interval
 		timer = setInterval(function() {
+// Create an oscillator to produce a beat sound
 		beat = audioContext.createOscillator();
+// Set the frequency of the oscillator to 1000 Hz
 		beat.frequency.value = 1000;
+// Connect the oscillator to gainNode so that its volume can be controlled
 		beat.connect(gainNode);
+// Start playing the oscillator sound at current time
 		beat.start(audioContext.currentTime);
+// Stop playing the oscillator sound after duration has passed
 		beat.stop(audioContext.currentTime + duration);
+// Set circle opacity to 1.0 (fully visible) to indicate a beat has occurred
 		circle.style.opacity = "1.0";
+// Set a timeout to change circle opacity back to 0.0 (invisible) halfway through interval 
 		setTimeout(function() {
 		circle.style.opacity = "0.0";
 		}, interval/2);
 		}, interval);
+// Set isPlaying flag to true indicating that metronome is currently playing 
 		isPlaying = true;
 		}
 		});
 // Stop metronome when stop button is clicked
 		stopButton.addEventListener("click", function() {
+// Check if metronome is currently playing
 		if (isPlaying) {
+// Clear the timer to stop metronome from playing
 		clearInterval(timer);
+// Set isPlaying flag to false indicating that metronome has stopped playing
 		isPlaying = false;
+// Set circle opacity to 0.0 (invisible) to indicate that metronome has stopped playing
 		circle.style.opacity = "0.0";
 		}
 		});

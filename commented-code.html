@@ -125,10 +125,11 @@ The last style block targets <input> elements of type “number” again but thi
 	<br>
 	<button id="tap">Tap Tempo</button>
 <!-- Script Start -->
-<!-- This is a <script> element that contains JavaScript code. The code adds an event listener to the document object that listens for a "gesturestart" event. When this event occurs, the anonymous function passed as the second argument to addEventListener() is called with the event object (e) as its argument. This function calls the preventDefault() method on the event object to prevent default browser actions for this event, such as zooming in or out. -->
 	<script>
-// 		This JavaScript code adds two event listeners to the document object. The first listens for a "gesturestart" event and calls the preventDefault() method on the event object when it occurs. This prevents default browser actions for this event, such as zooming in or out.
-// The second listener listens for a "touchstart" event and checks if there is more than one touch point (i.e., if multiple fingers are touching the screen). If there is more than one touch point, it calls the preventDefault() method on the event object to prevent default browser actions for this multi-touch gesture. The { passive: false } option passed as the third argument to addEventListener() specifies that this listener should not be passive (i.e., it may call preventDefault()).
+//This part of the code adds several event listeners to the document object. These event listeners listen for gesturestart and touchstart events.
+//When a gesturestart event occurs, the code calls event.preventDefault() to prevent the default behavior for that event. This means that any default actions that would normally occur when a gesture starts (such as zooming or scrolling) will not happen.
+//Similarly, when a touchstart event occurs and there is more than one touch point (i.e. the user is touching the screen with more than one finger), the code calls event.preventDefault() to prevent the default behavior for that event.
+//In relation to the metronome function as a whole, this part of the code helps ensure that any gestures or multi-touch interactions performed by the user do not interfere with the metronome’s operation.
 		document.addEventListener("gesturestart", function(event) {
   		event.preventDefault();
 		});
@@ -141,34 +142,37 @@ The last style block targets <input> elements of type “number” again but thi
 		e.preventDefault();
 		});
 // This code creates a metronome using the Web Audio API. It allows the user to set the beats per minute (BPM) and start/stop the metronome. The metronome produces a sound at a regular interval and also visually indicates each beat with a circle that changes opacity
-// Create an audio context and gain node
+// Create a new AudioContext object which represents an audio-processing graph built from audio modules linked together
 		var audioContext = new AudioContext();
+// Create a GainNode which can be used to control the overall volume of the audio graph
 		var gainNode = audioContext.createGain();
+// Connect the GainNode to the destination (i.e. speakers) so that any sound played through it will be audible
 		gainNode.connect(audioContext.destination);
 // Set the duration of each beat sound
 		var duration = 0.025;
 // Create an oscillator for the beat sound
 		var beat = audioContext.createOscillator();
+// Set the frequency of the oscillator to 1000 Hz
 		beat.frequency.value = 1000;
+// Connect the oscillator to the GainNode so that its sound will be audible
 		beat.connect(gainNode);
 // Start and stop the oscillator to produce a single beat sound
 		beat.start();
 		beat.stop(audioContext.currentTime + duration);
-// Keep track of whether the metronome is playing or not
 // Set isPlaying flag to false indicating that metronome is not currently playing
 		var isPlaying = false;
 // Get reference to bpmInput element
-        var bpmInput = document.getElementById("bpm");
+        	var bpmInput = document.getElementById("bpm");
 // Add an event listener to bpmInput to handle changes in input value
-bpmInput.addEventListener("input", function() {
+		bpmInput.addEventListener("input", function() {
 // Parse the value of bpmInput as an integer and store it in a variable called bpm
-var bpm = parseInt(this.value);
+		var bpm = parseInt(this.value);
 // Check if bpm value is within valid range (1-300)
-if (bpm >= 1 && bpm <= 300) {
+		if (bpm >= 1 && bpm <= 300) {
 // Call updateBpmValue function with new bpm value as argument
-updateBpmValue(bpm);
-    }
-});
+		updateBpmValue(bpm);
+    		}
+		});
 // Get references to DOM elements for user interaction
 		var startButton = document.getElementById("start");
 		var stopButton = document.getElementById("stop");

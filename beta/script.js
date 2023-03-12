@@ -24,10 +24,6 @@ beat.start();
 beat.stop(audioContext.currentTime + duration);
 var isPlaying = false;
 var bpmInput = document.getElementById("bpm");
-bpmInput.addEventListener("input", function () {
-  var bpm = parseInt(this.value);
-  if (bpm >= 1 && bpm <= 300) {
-    updateBpmValue(bpm);
     var updateInterval;
     bpmInput.addEventListener("input", function () {
       var bpm = parseInt(this.value);

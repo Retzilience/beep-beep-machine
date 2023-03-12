@@ -20,10 +20,11 @@ The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used
 
 The code is designed to be simple yet fine-tuned to deliver crucial functionality, ergonomy, and visual accessibility. It's a useful tool for musicians as well as a valuable resource for developers looking to study how such an application can be implemented.
 
-This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. We hope you find it useful!
+This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. I hope you find it useful!
 
 <h2>The production deploy can be accessed <a href="https://retzilience.github.io/beep-beep-machine/">HERE</a></h2>
-<h2>The code is extensively commentated <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/commented-code.html">HERE</a></h2>
+
+<h2>The JavaScript is extensively commented <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/comment/script.js">Here</a></h2>. You can also find commented css and index <a href="https://github.com/Retzilience/beep-beep-machine/tree/main/comment">Here</a>
 
 <h1>これはメトロノームです</h1>
 

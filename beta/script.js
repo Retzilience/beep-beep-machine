@@ -109,8 +109,19 @@ var tapButton = document.getElementById("tap");
 var tapTimes = [];
 var tapTimer;
 tapButton.addEventListener("click", function () {
+  // Push the current time to the tapTimes array
   tapTimes.push(Date.now());
+  
+  // If there are more than 4 times in the array, remove the first one
+  if (tapTimes.length > 4) {
+    tapTimes.shift();
+  }
+  
+  // Clear any existing timeout set by tapTimer
   clearTimeout(tapTimer);
+  
+  // If there are more than two times in the array,
+  // calculate an average interval between taps and set BPM value accordingly
   if (tapTimes.length > 2) {
     var total = 0;
     for (var i = 1; i < tapTimes.length; i++) {

@@ -28,8 +28,33 @@ bpmInput.addEventListener("input", function () {
   var bpm = parseInt(this.value);
   if (bpm >= 1 && bpm <= 300) {
     updateBpmValue(bpm);
+    updateMetronome(bpm); // added this line to update the metronome when the BPM input changes
   }
 });
+
+
+// added this function to update the metronome with a delay after a change in BPM
+function updateMetronome(bpm) {
+  if (isPlaying) {
+      clearInterval(timer);
+      setTimeout(function() {
+          var interval = 60000 / bpm;
+          timer = setInterval(function () {
+              beat = audioContext.createOscillator();
+              beat.frequency.value = 1000;
+              beat.connect(gainNode);
+              beat.start(audioContext.currentTime);
+              beat.stop(audioContext.currentTime + duration);
+              circle.style.opacity = "1.0";
+              setTimeout(function () {
+                  circle.style.opacity = "0.0";
+              }, interval / 2);
+          }, interval); 
+      },500)
+  }
+}
+
+
 var startButton = document.getElementById("start");
 var stopButton = document.getElementById("stop");
 var circle = document.querySelector(".circle");
@@ -73,6 +98,9 @@ tapButton.addEventListener("click", function () {
     var average = total / (tapTimes.length - 1);
     var bpm = Math.round(60000 / average);
     bpmInput.value = bpm;
+
+    updateMetronome(bpm); // added this line to update the metronome when the BPM changes from tapping
+
   }
   tapTimer = setTimeout(function () {
     tapTimes = [];
@@ -84,12 +112,18 @@ bpmDecreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm > 1) {
     bpmInput.value = bpm - 1;
+
+    updateMetronome(bpm - 1); // added this line to update the metronome when the BPM decreases
+
   }
 });
 bpmIncreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm < 300) {
     bpmInput.value = bpm + 1;
+
+    updateMetronome(bpm + 1); // added this line to update the metronome when the BPM increases
+
   }
 });
 function updateBpmValue(value) {

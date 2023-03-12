@@ -95,23 +95,46 @@ tapButton.addEventListener("click", function () {
     var average = total / (tapTimes.length - 1);
     var bpm = Math.round(60000 / average);
     bpmInput.value = bpm;
+    updateMetronomeInterval();
   }
   tapTimer = setTimeout(function () {
     tapTimes = [];
   }, 2000);
 });
+
+function updateMetronomeInterval() {
+  if (isPlaying) {
+    clearInterval(timer);
+    var bpm = parseInt(bpmInput.value);
+    var interval = 60000 / bpm;
+    timer = setInterval(function () {
+      beat = audioContext.createOscillator();
+      beat.frequency.value = 1000;
+      beat.connect(gainNode);
+      beat.start(audioContext.currentTime);
+      beat.stop(audioContext.currentTime + duration);
+      circle.style.opacity = "1.0";
+      setTimeout(function () {
+        circle.style.opacity = "0.0";
+      }, interval / 2);
+    }, interval);
+  }
+}
+
 var bpmDecreaseButton = document.getElementById("bpm-decrease");
 var bpmIncreaseButton = document.getElementById("bpm-increase");
 bpmDecreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm > 1) {
     bpmInput.value = bpm - 1;
+    updateMetronomeInterval();
   }
 });
 bpmIncreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm < 300) {
     bpmInput.value = bpm + 1;
+    updateMetronomeInterval();
   }
 });
 function updateBpmValue(value) {

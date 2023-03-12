@@ -1,5 +1,5 @@
 # beep-beep-machine
-# b.b.m.2 - A Simple Yet Fine-Tuned Metronome
+# b.b.m.2 - A Metronome
 
 b.b.m.2 is a metronome web application designed to help musicians keep a steady tempo while practicing or performing. It produces an audible sound at regular intervals, with the number of beats per minute (BPM) being adjustable by the user.
 

@@ -25,6 +25,28 @@ beat.stop(audioContext.currentTime + duration);
 var isPlaying = false;
 var bpmInput = document.getElementById("bpm");
 bpmInput.addEventListener("input", function () {
+  var lastBpm = 0;
+  bpmInput.addEventListener("change", function () {
+    if (isPlaying && parseInt(this.value) !== lastBpm) {
+      setTimeout(function () {
+        var bpm = parseInt(bpmInput.value);
+        var interval = 60000 / bpm;
+        clearInterval(timer);
+        timer = setInterval(function () {
+          beat = audioContext.createOscillator();
+          beat.frequency.value = 1000;
+          beat.connect(gainNode);
+          beat.start(audioContext.currentTime);
+          beat.stop(audioContext.currentTime + duration);
+          circle.style.opacity = "1.0";
+          setTimeout(function () {
+            circle.style.opacity = "0.0";
+          }, interval / 2);
+        }, interval);
+      }, 500);
+      lastBpm = parseInt(this.value);
+    }
+  });
   var bpm = parseInt(this.value);
   if (bpm >= 1 && bpm <= 300) {
     updateBpmValue(bpm);
@@ -58,13 +80,33 @@ stopButton.addEventListener("click", function () {
     circle.style.opacity = "0.0";
   }
 });
+
+function updateMetronomeInterval() {
+  if (isPlaying) {
+    clearInterval(timer);
+    var bpm = parseInt(bpmInput.value);
+    var interval = 60000 / bpm;
+    timer = setInterval(function () {
+      beat = audioContext.createOscillator();
+      beat.frequency.value = 1000;
+      beat.connect(gainNode);
+      beat.start(audioContext.currentTime);
+      beat.stop(audioContext.currentTime + duration);
+      circle.style.opacity = "1.0";
+      setTimeout(function () {
+        circle.style.opacity = "0.0";
+      }, interval / 2);
+    }, interval);
+  }
+}
 var tapButton = document.getElementById("tap");
 var tapTimes = [];
 var tapTimer;
 tapButton.addEventListener("click", function () {
   tapTimes.push(Date.now());
   clearTimeout(tapTimer);
-  if (tapTimes.length > 2) {
+  if (tapTimes.length > 3) {
+    tapTimes.shift();
     var total = 0;
     for (var i = 1; i < tapTimes.length; i++) {
       total += tapTimes[i] - tapTimes[i - 1];
@@ -83,12 +125,14 @@ bpmDecreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm > 1) {
     bpmInput.value = bpm - 1;
+    updateMetronomeInterval();
   }
 });
 bpmIncreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm < 300) {
     bpmInput.value = bpm + 1;
+    updateMetronomeInterval();
   }
 });
 function updateBpmValue(value) {

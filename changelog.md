@@ -1,5 +1,18 @@
 # Changelog
 
+[2.03] - 2023-03-12
+
+### Added
+- Ability to change the tempo while the metronome is playing. This allows the user to adjust the tempo on the fly without having to stop and restart the metronome.
+- Added delay when changing the tempo to give users time to set the proper BPM.
+
+### Changed
+- Updated the tap tempo functionality to only take into account the last few clicks by the user when calculating the BPM. <br>This avoids skewering in tempo calculation after a long series of taps.
+
+### Fixed
+- N/A
+<br>These changes greatly improved the usability of the metronome by providing a more flexible way to change the tempo, allowing the user to make adjustments without stopping and starting the metronome. Additionally, the tap tempo functionality was improved to provide more accurate results, ensuring that the tempo is more stable and consistent.
+
 ## [2.02] - 2023-03-12
 
 ### Added

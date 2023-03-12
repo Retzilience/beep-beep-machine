@@ -1,6 +1,6 @@
 # Changelog
 
-[2.03] - 2023-03-12
+## [2.03] - 2023-03-12
 
 ### Added
 - Ability to change the tempo while the metronome is playing. This allows the user to adjust the tempo on the fly without having to stop and restart the metronome.

@@ -27,7 +27,7 @@ This is a personal project and exercise. While the primary aim is to serve perso
 
 <h2>The JavaScript is extensively commented <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/comment/script.js" target="_blank">Here</a></h2>
 - You can also find the commented style.css and index.html <a href="https://github.com/Retzilience/beep-beep-machine/tree/main/comment" target="_blank">Here</a>
-
+<br><br>
 <h1>これはメトロノームです</h1>
 
 <p>メトロノームは、演奏や練習中に音楽家が一定のテンポを保つのに役立つ道具です。 定期的な間隔で聴覚的な音を出し、ビート/分（BPM）の数はユーザーによって調整可能です。</p>

@@ -92,13 +92,13 @@ startButton.addEventListener("click", function () {
       beat.connect(gainNode);
       beat.start(audioContext.currentTime);
       beat.stop(audioContext.currentTime + duration);
-// This lights up the circle and sets a timeout with the interval to half the time of the beat, meaning the circle will become transparent again halfway through the current beat.
+      // This lights up the circle and sets a timeout with the interval to half the time of the beat, meaning the circle will become transparent again halfway through the current beat.
       circle.style.opacity = "1.0";
       setTimeout(function () {
         circle.style.opacity = "0.0";
       }, interval / 2);
     }, interval);
-// Indicates that the metronome started playing
+    // Indicates that the metronome started playing
     isPlaying = true;
   }
 });
@@ -111,14 +111,13 @@ stopButton.addEventListener("click", function () {
     circle.style.opacity = "0.0";
   }
 });
-/*
-This function updates the metronome's interval based on the user's input
-It clears the current timer and sets a new one with the updated interval
-It also creates an oscillator and connects it to the gain node, which is connected to the destination (the speakers)
-The oscillator's frequency is set to 1000 Hz, which will produce a click sound
-After starting the oscillator, it will stop after a specified duration
-The circle element's opacity is set to 1 to indicate the start of a beat, and then set to 0 after half the interval to indicate the end of a beat
-*/
+//
+// This function updates the metronome's interval based on the user's input
+// It clears the current timer and sets a new one with the updated interval
+// It also creates an oscillator and connects it to the gain node, which is connected to the destination (the speakers)
+// The oscillator's frequency is set to 1000 Hz, which will produce a click sound
+// After starting the oscillator, it will stop after a specified duration
+// The circle element's opacity is set to 1 to indicate the start of a beat, and then set to 0 after half the interval to indicate the end of a beat
 function updateMetronomeInterval() {
   if (isPlaying) {
     clearInterval(timer);

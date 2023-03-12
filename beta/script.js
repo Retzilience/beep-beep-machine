@@ -24,31 +24,10 @@ beat.start();
 beat.stop(audioContext.currentTime + duration);
 var isPlaying = false;
 var bpmInput = document.getElementById("bpm");
-    var updateInterval;
-    bpmInput.addEventListener("input", function () {
-      var bpm = parseInt(this.value);
-      if (bpm >= 1 && bpm <= 300) {
-        updateBpmValue(bpm);
-        if (isPlaying) {
-          clearInterval(updateInterval);
-          updateInterval = setTimeout(function () {
-            clearInterval(timer);
-            var interval = 60000 / bpm;
-            timer = setInterval(function () {
-              beat = audioContext.createOscillator();
-              beat.frequency.value = 1000;
-              beat.connect(gainNode);
-              beat.start(audioContext.currentTime);
-              beat.stop(audioContext.currentTime + duration);
-              circle.style.opacity = "1.0";
-              setTimeout(function () {
-                circle.style.opacity = "0.0";
-              }, interval / 2);
-            }, interval);
-          }, 500);
-        }
-      }
-    });
+bpmInput.addEventListener("input", function () {
+  var bpm = parseInt(this.value);
+  if (bpm >= 1 && bpm <= 300) {
+    updateBpmValue(bpm);
   }
 });
 var startButton = document.getElementById("start");
@@ -93,11 +72,8 @@ tapButton.addEventListener("click", function () {
     }
     var average = total / (tapTimes.length - 1);
     var bpm = Math.round(60000 / average);
-    
-    // Call updateBpmValue function
-    updateBpmValue(bpm);
+    bpmInput.value = bpm;
   }
-  
   tapTimer = setTimeout(function () {
     tapTimes = [];
   }, 2000);
@@ -107,35 +83,18 @@ var bpmIncreaseButton = document.getElementById("bpm-increase");
 bpmDecreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm > 1) {
-    updateBpmValue(bpm - 1);
+    bpmInput.value = bpm - 1;
   }
 });
 bpmIncreaseButton.addEventListener("click", function () {
   var bpm = parseInt(bpmInput.value);
   if (bpm < 300) {
-    updateBpmValue(bpm + 1);
+    bpmInput.value = bpm + 1;
   }
 });
 function updateBpmValue(value) {
   bpmInput.value = value;
-  if (isPlaying) {
-    clearInterval(updateInterval);
-    updateInterval = setTimeout(function () {
-      clearInterval(timer);
-      var interval = 60000 / value;
-      timer = setInterval(function () {
-        beat = audioContext.createOscillator();
-        beat.frequency.value = 1000;
-        beat.connect(gainNode);
-        beat.start(audioContext.currentTime);
-        beat.stop(audioContext.currentTime + duration);
-        circle.style.opacity = "1.0";
-        setTimeout(function () {
-          circle.style.opacity = "0.0";
-        }, interval / 2);
-      }, interval);
-    }, 500);}
-  }
+}
 bpmInput.addEventListener("click", function () {
   this.focus();
 });

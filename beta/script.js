@@ -64,7 +64,8 @@ var tapTimer;
 tapButton.addEventListener("click", function () {
   tapTimes.push(Date.now());
   clearTimeout(tapTimer);
-  if (tapTimes.length > 2) {
+  if (tapTimes.length > 4) {
+    tapTimes.shift();
     var total = 0;
     for (var i = 1; i < tapTimes.length; i++) {
       total += tapTimes[i] - tapTimes[i - 1];

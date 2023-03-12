@@ -53,7 +53,7 @@ bpmInput.addEventListener("input", function () {
   }
 });
 
-// Start playing the metronome when start button is clicked. A circle with dynamic behaviour is synced to the tempo.
+// Start playing the metronome when start button is clicked.
 startButton.addEventListener("click", function () {
   if (!isPlaying) {
     var bpm = parseInt(bpmInput.value);
@@ -64,11 +64,13 @@ startButton.addEventListener("click", function () {
       beat.connect(gainNode);
       beat.start(audioContext.currentTime);
       beat.stop(audioContext.currentTime + duration);
+// This lights up the circle and sets a timeout with the interval to half the time of the beat, meaning the circle will become transparent again halfway through the current beat.
       circle.style.opacity = "1.0";
       setTimeout(function () {
         circle.style.opacity = "0.0";
       }, interval / 2);
     }, interval);
+// Indicates that the metronome started playing
     isPlaying = true;
   }
 });

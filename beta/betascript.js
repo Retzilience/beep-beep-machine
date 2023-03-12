@@ -99,7 +99,6 @@ function updateMetronomeInterval() {
     }, interval);
   }
 }
-
 var tapButton = document.getElementById("tap");
 var tapTimes = [];
 var tapTimer;
@@ -121,9 +120,6 @@ tapButton.addEventListener("click", function () {
     tapTimes = [];
   }, 2000);
 });
-
-
-
 var bpmDecreaseButton = document.getElementById("bpm-decrease");
 var bpmIncreaseButton = document.getElementById("bpm-increase");
 bpmDecreaseButton.addEventListener("click", function () {

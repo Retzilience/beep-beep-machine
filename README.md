@@ -23,10 +23,10 @@ The code is designed to be simple yet fine-tuned to deliver crucial functionalit
 
 This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. I hope you find it useful!
 
-<h2>b.b.m.2 can be accessed <a href="https://retzilience.github.io/beep-beep-machine/">HERE</a></h2>
+<h2>b.b.m.2 can be accessed <a href="https://retzilience.github.io/beep-beep-machine/" target="_blank">HERE</a></h2>
 
-<h2>The JavaScript is extensively commented <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/comment/script.js">Here</a></h2>
-- You can also find the commented style.css and index.html <a href="https://github.com/Retzilience/beep-beep-machine/tree/main/comment">Here</a>
+<h2>The JavaScript is extensively commented <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/comment/script.js" target="_blank">Here</a></h2>
+- You can also find the commented style.css and index.html <a href="https://github.com/Retzilience/beep-beep-machine/tree/main/comment" target="_blank">Here</a>
 
 <h1>これはメトロノームです</h1>
 

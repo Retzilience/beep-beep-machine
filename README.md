@@ -12,11 +12,12 @@ b.b.m.2 is a metronome web application designed to help musicians keep a steady 
 
 ## Technical Details
 
-The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used in several ways:
+The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used in several ways, such as:
 
 - Adding event listeners to buttons and other elements to respond to user interactions
-- Using `setTimeout` and `setInterval` functions to create timers for clearing old tap times and playing beats at regular intervals
+- Using functions to create timers for clearing old tap times and playing beats at regular intervals
 - Using the Web Audio API to create an oscillator and control its frequency and volume
+- Creating and syncing visual elements to the tempo beep
 
 The code is designed to be simple yet fine-tuned to deliver crucial functionality, ergonomy, and visual accessibility. It's a useful tool for musicians as well as a valuable resource for developers looking to study how such an application can be implemented.
 

@@ -1,26 +1,29 @@
 # beep-beep-machine
-<h1>This is a metronome</h1>
-<p>The metronome is a tool that helps musicians keep a steady tempo while practicing or performing. It produces an audible sound at regular intervals, with the number of beats per minute (BPM) being adjustable by the user.</p>
-<h2>Some of the features it includes</h2>
-<ul>
-  <li>The ability to set the BPM directly or increment/decrement it using buttons</li>
-  <li>The ability to calculate the BPM based on user taps</li>
-  <li>The use of an oscillator to produce an audible sound for each beat</li>
-  <li>The use of visual aids to represent the BPM</li>
-</ul>
-<h2>JavaScript Usage</h2>
-<p>JavaScript is used in several forms as:</p>
-<ul>
-  <li>Adding event listeners to buttons and other elements to respond to user interactions</li>
-  <li>Using setTimeout and setInterval to create timers for clearing old tap times and playing beats at regular intervals</li>
-  <li>Using the Web Audio API to create an oscillator and control its frequency and volume</li>
-</ul>
+# b.b.m.2 - A Simple Yet Fine-Tuned Metronome
 
-<p>This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form.</p>
+b.b.m.2 is a metronome web application designed to help musicians keep a steady tempo while practicing or performing. It produces an audible sound at regular intervals, with the number of beats per minute (BPM) being adjustable by the user.
+
+## Features
+
+- **Set BPM directly or increment/decrement it using buttons:** Users can enter a BPM value directly into an input field or use "+" and "-" buttons to increment/decrement the BPM value.
+- **Calculate BPM based on user taps:** Users can tap a "Tap Tempo" button in time with their desired tempo and the metronome will calculate and set the corresponding BPM value.
+- **Audible sound for each beat:** The metronome uses an oscillator from the Web Audio API to produce an audible sound for each beat.
+- **Visual aids to represent the BPM:** A circle visual indicator changes opacity in time with the metronome beats to provide a visual representation of the tempo.
+
+## Technical Details
+
+The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used in several ways:
+
+- Adding event listeners to buttons and other elements to respond to user interactions
+- Using `setTimeout` and `setInterval` functions to create timers for clearing old tap times and playing beats at regular intervals
+- Using the Web Audio API to create an oscillator and control its frequency and volume
+
+The code is designed to be simple yet fine-tuned to deliver crucial functionality, ergonomy, and visual accessibility. It's a useful tool for musicians as well as a valuable resource for developers looking to study how such an application can be implemented.
+
+This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. We hope you find it useful!
+
 <h2>The production deploy can be accessed <a href="https://retzilience.github.io/beep-beep-machine/">HERE</a></h2>
 <h2>The code is extensively commentated <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/commented-code.html">HERE</a></h2>
-
-
 
 <h1>これはメトロノームです</h1>
 

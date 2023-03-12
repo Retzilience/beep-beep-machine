@@ -24,7 +24,4 @@
 ### Fixed
 - Fixed an issue where text selection was disabled for all elements on the page, preventing interaction with form elements like input fields on desktop.
 
-## [1.0.0] - 2023-03-12
-- Initial release of b.b.m.2 metronome web application.
-
 These changes improved the usability of the metronome by allowing users to interact with form elements on desktop and providing a cleaner interface for changing BPM values.

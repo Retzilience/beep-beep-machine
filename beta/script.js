@@ -84,6 +84,7 @@ var stopButton = document.getElementById("stop");
 var circle = document.querySelector(".circle");
 startButton.addEventListener("click", function () {
   if (!isPlaying) {
+    audioContext.resume(); // Add this line
     var bpm = parseInt(bpmInput.value);
     var interval = 60000 / bpm;
     timer = setInterval(function () {

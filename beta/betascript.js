@@ -25,6 +25,28 @@ beat.stop(audioContext.currentTime + duration);
 var isPlaying = false;
 var bpmInput = document.getElementById("bpm");
 bpmInput.addEventListener("input", function () {
+  var lastBpm = 0;
+bpmInput.addEventListener("change", function() {
+if (isPlaying && parseInt(this.value) !== lastBpm) {
+setTimeout(function() {
+var bpm = parseInt(bpmInput.value);
+var interval = 60000 / bpm;
+clearInterval(timer);
+timer = setInterval(function () {
+beat = audioContext.createOscillator();
+beat.frequency.value = 1000;
+beat.connect(gainNode);
+beat.start(audioContext.currentTime);
+beat.stop(audioContext.currentTime + duration);
+circle.style.opacity = "1.0";
+setTimeout(function () {
+circle.style.opacity = "0.0";
+}, interval / 2);
+}, interval);
+}, 500);
+lastBpm = parseInt(this.value);
+}
+});
   var bpm = parseInt(this.value);
   if (bpm >= 1 && bpm <= 300) {
     updateBpmValue(bpm);

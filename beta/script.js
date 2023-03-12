@@ -28,6 +28,31 @@ bpmInput.addEventListener("input", function () {
   var bpm = parseInt(this.value);
   if (bpm >= 1 && bpm <= 300) {
     updateBpmValue(bpm);
+    var updateInterval;
+    bpmInput.addEventListener("input", function () {
+      var bpm = parseInt(this.value);
+      if (bpm >= 1 && bpm <= 300) {
+        updateBpmValue(bpm);
+        if (isPlaying) {
+          clearInterval(updateInterval);
+          updateInterval = setTimeout(function () {
+            clearInterval(timer);
+            var interval = 60000 / bpm;
+            timer = setInterval(function () {
+              beat = audioContext.createOscillator();
+              beat.frequency.value = 1000;
+              beat.connect(gainNode);
+              beat.start(audioContext.currentTime);
+              beat.stop(audioContext.currentTime + duration);
+              circle.style.opacity = "1.0";
+              setTimeout(function () {
+                circle.style.opacity = "0.0";
+              }, interval / 2);
+            }, interval);
+          }, 500);
+        }
+      }
+    });
   }
 });
 var startButton = document.getElementById("start");

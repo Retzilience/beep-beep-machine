@@ -1,0 +1,109 @@
+body {
+    background-color: #222222;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #f2f2f2;
+}
+
+/* A media query is used to apply styles only on screens with a maximum width of 799 pixels. For these screens, all elements have their user-select property set to “none” to prevent text selection. Efectively splitting behaviour between desktop and mobile*/
+@media only screen and (max-width: 799px) {
+    * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+#bpm {
+    margin-right: 5px;
+    background-color: #f2f2f2;
+    color: #222222;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 100px;
+    height: 60px;
+    font-size: 28px;
+    outline: none;
+    text-align: center;
+}
+
+#bpm-decrease,
+#bpm-increase {
+    background-color: #f1f1f1;
+    color: #222222;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#bpm-decrease:hover,
+#bpm-increase:hover {
+    background-color: #d9d9d9;
+}
+
+#tap {
+    margin-top: 50px;
+    background-color: #f2f2f2;
+    color: #222222;
+    border: none;
+    padding: 30px 30px;
+    border-radius: 3px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#start,
+#stop {
+    margin-top: 10px;
+    background-color: #f2f2f2;
+    color: #222222;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 48px;
+    margin-top: 50px;
+}
+/* The circle visual indicator. It’s initially transparent (opacity:0) but changes opacity when activated by the metronome beat. */
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    margin: 30px auto;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+/* touch-action property for html/body elements are set up so that touch gestures only pan along x/y axis without zooming in/out or other default behaviors, this helps to keep the metronome in focus and operating correctly */
+html,
+body {
+    touch-action: pan-x pan-y;
+    overscroll-behavior: none;
+}

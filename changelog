@@ -15,11 +15,10 @@
 
 ## [2.01] - 2023-03-10
 ### Added
-- N/A
+- Added a media query to apply the `user-select: none` property only on mobile devices. This allows interaction with form elements on desktop while still preventing text selection on mobile devices.
 
 ### Changed
-- Added a media query to apply the `user-select: none` property only on mobile devices. This allows interaction with form elements on desktop while still preventing text selection on mobile devices.
-- Added CSS code to remove the up and down arrows from the number input box. This allows users to change the BPM value by typing only.
+- Changed CSS code to remove the up and down arrows from the number input box. This allows users to change the BPM value by typing only.
 
 ### Fixed
 - Fixed an issue where text selection was disabled for all elements on the page, preventing interaction with form elements like input fields on desktop.

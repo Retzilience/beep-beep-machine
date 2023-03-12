@@ -114,6 +114,7 @@ tapButton.addEventListener("click", function () {
     var average = total / (tapTimes.length - 1);
     var bpm = Math.round(60000 / average);
     bpmInput.value = bpm;
+    updateMetronomeInterval();
   }
   tapTimer = setTimeout(function () {
     tapTimes = [];

@@ -26,10 +26,12 @@ The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used
 
 #### This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. I hope you find it useful!
 
-# b.b.m.2 can be accessed <a href="https://retzilience.github.io/beep-beep-machine/" target="_blank">HERE</a></h2>
+# b.b.m.2 CAN BE ACCESSED <A HREF="HTTPS://RETZILIENCE.GITHUB.IO/BEEP-BEEP-MACHINE/" TARGET="_BLANK">HERE</A></H2>
 
-## The JavaScript is extensively commented <a href="https://github.com/Retzilience/beep-beep-machine/blob/main/comment/script.js" target="_blank">Here</a></h2>
-### You can also find the commented style.css and index.html <a href="https://github.com/Retzilience/beep-beep-machine/tree/main/comment" target="_blank">Here</a>
+## THE JAVASCRIPT IS EXTENSIVELY COMMENTED <A HREF="HTTPS://GITHUB.COM/RETZILIENCE/BEEP-BEEP-MACHINE/BLOB/MAIN/COMMENT/SCRIPT.JS" TARGET="_BLANK">HERE</A></H2>
+
+### YOU CAN ALSO FIND THE COMMENTED STYLE.CSS AND INDEX.HTML <A HREF="HTTPS://GITHUB.COM/RETZILIENCE/BEEP-BEEP-MACHINE/TREE/MAIN/COMMENT" TARGET="_BLANK">HERE</A>
+
 <br><br>
 
 ```

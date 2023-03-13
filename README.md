@@ -1,7 +1,10 @@
 # beep-beep-machine
 # b.b.m.2 - A Metronome
 
-b.b.m.2 is a metronome web application designed to help musicians keep a steady tempo while practicing or performing. It produces an audible sound at regular intervals, with the number of beats per minute (BPM) being adjustable by the user.
+b.b.m.2 is a metronome web application designed to help musicians keep a steady tempo while practicing or performing. It produces an audible sound at regular intervals.<br>
+The tool uses HTML, CSS, and JavaScript to render a user interface that includes a large display of the current tempo, buttons to adjust the tempo, and buttons to start/stop/tap the metronome.
+<br><br>
+The CSS code provides a responsive design that adapts to various screen sizes and sets the style for all of the user interface elements. The JavaScript code defines variables and functions to manage the behavior of the metronome tool. When a user changes the tempo using the +/- buttons or the input field, an event listener triggers a function that updates the tempo and sets an interval for the metronome to play. The metronome sound is generated using the Web Audio API, which creates an oscillator object that generates a tone at a specific frequency for a specified duration. The user can also tap the "Tap Tempo" button to manually set the tempo by tapping the button in time with the desired beat when tapped with 4 or more consecutive taps in sequence.
 
 ## Features
 

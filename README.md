@@ -1,4 +1,3 @@
-# beep-beep-machine
 # b.b.m.2 - metronome
 
 b.b.m.2 is a metronome web application designed to help musicians keep a steady tempo while practicing or performing. It produces an audible sound at regular intervals.<br><br>

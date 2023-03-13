@@ -23,7 +23,7 @@ The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used
 - Creating and syncing visual elements to the tempo beep
 
 The code is designed to be simple yet fine-tuned to deliver crucial functionality, ergonomy, and visual accessibility. It's a useful tool for musicians as well as a valuable resource for developers looking to study how such an application can be implemented.
-
+<br><br>
 This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. I hope you find it useful!
 
 <h2>b.b.m.2 can be accessed <a href="https://retzilience.github.io/beep-beep-machine/" target="_blank">HERE</a></h2>

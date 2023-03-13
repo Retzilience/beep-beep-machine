@@ -26,13 +26,13 @@ The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used
 
 #### This is a personal project and exercise. While the primary aim is to serve personal purposes, the process, code, and deployment are welcomed to be used as a tool in deployed form and as study material in code form. I hope you find it useful!
 
-# b.b.m.2 CAN BE ACCESSED <A HREF="HTTPS://RETZILIENCE.GITHUB.IO/BEEP-BEEP-MACHINE/" TARGET="_BLANK">HERE</A></H2>
+# b.b.m.2 can be accessed <a href="https://retzilience.github.io/beep-beep-machine/" target="_blank">here</a></h2>
 
-## THE JAVASCRIPT IS EXTENSIVELY COMMENTED <A HREF="HTTPS://GITHUB.COM/RETZILIENCE/BEEP-BEEP-MACHINE/BLOB/MAIN/COMMENT/SCRIPT.JS" TARGET="_BLANK">HERE</A></H2>
+## the javascript is extensively commented <a href="https://github.com/retzilience/beep-beep-machine/blob/main/comment/script.js" target="_blank">here</a></h2>
 
-#### YOU CAN ALSO FIND THE COMMENTED STYLE.CSS AND INDEX.HTML <A HREF="HTTPS://GITHUB.COM/RETZILIENCE/BEEP-BEEP-MACHINE/TREE/MAIN/COMMENT" TARGET="_BLANK">HERE</A>
+### you can also find the commented style.css and index.html <a href="https://github.com/retzilience/beep-beep-machine/tree/main/comment" target="_blank">here</a>
 
-#### ADDITIONALLY, IF YOU HAVEN'T HAD ENOUGH OF YOUR FILL OF METRONOME CODE, YOU CAN FIND THE PROJECT TABLE OF CONTENTS <A HREF="https://github.com/Retzilience/beep-beep-machine/blob/main/toc.md">HERE</a>
+#### additionally, if you haven't had enough of your fill of metronome code, you can find the project table of contents <a href="https://github.com/retzilience/beep-beep-machine/blob/main/toc.md">here</a>
 
 <br>
 

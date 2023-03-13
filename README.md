@@ -32,7 +32,7 @@ The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used
 
 ### YOU CAN ALSO FIND THE COMMENTED STYLE.CSS AND INDEX.HTML <A HREF="HTTPS://GITHUB.COM/RETZILIENCE/BEEP-BEEP-MACHINE/TREE/MAIN/COMMENT" TARGET="_BLANK">HERE</A>
 
-<br><br>
+<br>
 
 ```
 Table of Contents:

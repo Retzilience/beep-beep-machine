@@ -34,48 +34,6 @@ The metronome is implemented using HTML, CSS, and JavaScript. JavaScript is used
 
 <br>
 
-```
-Table of Contents:
-
-HTML
-  doctype declaration
-  HTML element
-  head element
-  meta element (charset, viewport)
-  title element
-  link element (stylesheet)
-  body element
-  h1 element
-  div element (circle)
-  button elements (bpm decrease/increase, start/stop, tap)
-  input element (bpm)
-  script element (JavaScript)
-
-CSS
-  background-color
-  font-family
-  text-align
-  margin
-  padding
-  color
-  media queries
-  input styling
-  button styling
-  h1 styling
-  circle styling
-  touch-action
-  overscroll-behavior
-
-JavaScript
-  touch/gesture event listeners
-  Web Audio API (AudioContext, GainNode, Oscillator)
-  variable declarations (duration, beat, isPlaying, bpmInput)
-  event listeners (bpmInput)
-  functions (startStop, tapTempo, updateTempo)
-```
-
-
-
 <h1>これはメトロノームです</h1>
 
 <p>メトロノームは、演奏や練習中に音楽家が一定のテンポを保つのに役立つ道具です。 定期的な間隔で聴覚的な音を出し、ビート/分（BPM）の数はユーザーによって調整可能です。</p>
